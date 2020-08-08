@@ -1,8 +1,8 @@
 
 //define([ 'windy/Particle', 'windy/WindField'], function ( Particle, WindField) {
 var _primitives = null;
-var SPEED_RATE = 0.15;
-var PARTICLES_NUMBER =2000;//默认2000
+var SPEED_RATE = 0.01;
+var PARTICLES_NUMBER = 200;//默认2000
 var MAX_AGE = 10;
 var BRIGHTEN = 1.5;
 
@@ -50,8 +50,8 @@ Windy.prototype = {
                     particle.age = 0;
                 } else {
                     uv = field.getIn(x, y);
-                    nextX = x +  SPEED_RATE * uv[0];
-                    nextY = y +  SPEED_RATE * uv[1];
+                    nextX = x + SPEED_RATE * uv[0];
+                    nextY = y + SPEED_RATE * uv[1];
                     particle.path.push(nextX, nextY);
                     particle.x = nextX;
                     particle.y = nextY;
@@ -115,7 +115,7 @@ Windy.prototype = {
             length = positions.length,
             count = length / 2;
         for (var i = 0; i < length; i++) {
-            colors.push(Cesium.Color.WHITE.withAlpha(i / count * ageRate * BRIGHTEN));
+            colors.push(Cesium.Color.ORANGE.withAlpha(i / count * ageRate * BRIGHTEN));
         }
         return new Cesium.GeometryInstance({
             geometry: new Cesium.PolylineGeometry({
@@ -138,7 +138,7 @@ Windy.prototype = {
         this.lines = _primitives.add(linePrimitive);
     },
     randomParticle: function (particle) {
-        var safe = 30,x, y;
+        var safe = 30, x, y;
 
         do {
             x = Math.floor(Math.random() * (this.windField.cols - 2));
