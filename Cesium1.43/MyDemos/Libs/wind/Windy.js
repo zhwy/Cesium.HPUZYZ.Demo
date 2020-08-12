@@ -1,8 +1,8 @@
 
 //define([ 'windy/Particle', 'windy/WindField'], function ( Particle, WindField) {
 var _primitives = null;
-var SPEED_RATE = 0.01;
-var PARTICLES_NUMBER = 200;//默认2000
+var SPEED_RATE = 0.1;
+var PARTICLES_NUMBER = 2000;//默认2000
 var MAX_AGE = 10;
 var BRIGHTEN = 1.5;
 
